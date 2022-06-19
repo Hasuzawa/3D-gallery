@@ -12,6 +12,8 @@ const canvasStyle = {
 
 interface SceneProps extends IStyled {}
 
+// const objects: React.ReactElement[] = [<Dice />]
+
 
 const RawScene = (props: SceneProps) => {
 	return (
@@ -20,12 +22,14 @@ const RawScene = (props: SceneProps) => {
 			<OrbitControls minDistance={5} maxDistance={80}/>
 			<PerspectiveCamera makeDefault position={[10,10,5]}/>
 			<Dice />
+			
 		</Canvas>
 	)
 }
 
 
 const Scene = styled(RawScene)`
+	position: absolute;
 `
 
 

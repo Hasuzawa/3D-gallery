@@ -8,7 +8,7 @@ interface DotRingProps extends IStyled {
 
 const RawDotRing = (props: DotRingProps) => {
 	const { className, selected } = props
-	return <span className={className}>{selected || <Ring />}</span>
+	return <span className={className}>{selected && <Ring />}</span>
 }
 
 const DotRing = styled(RawDotRing)`

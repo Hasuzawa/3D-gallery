@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { IStyled } from "../../type"
-import { Dot } from "./Dot"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
 import { NavigationBar } from "./NavigationBar"
 import { Button } from "../Button"

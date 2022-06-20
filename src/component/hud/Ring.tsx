@@ -1,11 +1,12 @@
 import styled from "styled-components"
 import { IStyled } from "../../type"
+import { motion } from "framer-motion"
 
 interface RingProps extends IStyled {}
 
 const RawRing = (props: RingProps) => {
 	const { className } = props
-	return <span className={className}></span>
+	return <motion.span layoutId="ring" className={className}></motion.span>
 }
 
 const Ring = styled(RawRing)`

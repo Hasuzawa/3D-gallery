@@ -1,13 +1,13 @@
 import styled from "styled-components"
 import { IStyled } from "../../type"
 
-interface DotListProps extends IStyled {}
+interface NavigationBarProps extends IStyled {}
 
-const RawDotList = (props: DotListProps) => {
+const RawNavigationBar = (props: NavigationBarProps) => {
 	return <li className={props.className}>{props.children}</li>
 }
 
-const DotList = styled(RawDotList)`
+const NavigationBar = styled(RawNavigationBar)`
 	position: absolute;
 	bottom: 5%;
 	left: 50%;
@@ -15,7 +15,7 @@ const DotList = styled(RawDotList)`
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
-	column-gap: 30px;
+	column-gap: 20px;
 `
 
-export { DotList }
+export { NavigationBar }

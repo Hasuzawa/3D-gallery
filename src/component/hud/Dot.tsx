@@ -16,6 +16,7 @@ const RawDot = (props: DotProps) => {
 		</Button>
 	)
 }
+// there is now no difference between between clickzone and white dot, which is too inflexible
 
 const Dot = styled(RawDot)`
 	display: inline-block;

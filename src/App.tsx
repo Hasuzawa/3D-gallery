@@ -10,31 +10,21 @@ import { model } from "./component/object/model"
 interface AppProps extends IStyled {}
 
 const RawApp = (props: AppProps) => {
-	// const eventOnKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-	// 	if (e.code === "LeftArrow")
-	// 		console.log("left arrow pressed")
-	// 	else if (e.code === "RightArrow")
-	// 		console.log("right arrow pressed")
-	// }
-	// onKeyDown={(e) => eventOnKeyDown(e)}
-
-	// const [selectedModel, setSelectedModel] = useState<Model>()
-
 	const [selectedIndex, setSelectedIndex] = useState<number>(0)
 	const effectOnSelect = (n: number) => {
 		setSelectedIndex(n)
 	}
 
-	const [selectedModel, setSelectedModel] = useState<any>(
+	const [selectedModel, setSelectedModel] = useState<React.ReactNode>(
 		model[selectedIndex]
 	)
 
 	const changeSelectedIndex = (n: number) => {
 		setSelectedIndex(rotate(n, 0, numberOfModel - 1))
 	}
-	const changeSelectedIndexMaker = (n: number) => {
-		return changeSelectedIndex(selectedIndex + n)
-	}
+	// const changeSelectedIndexMaker = (n: number) => {
+	// 	return changeSelectedIndex(selectedIndex + n)
+	// }
 	// const increaseSelectedIndex = changeSelectedIndexMaker(1)
 	// const decreaseSelectedIndex = changeSelectedIndexMaker(-1)
 	const increaseSelectedIndex = () => {
@@ -54,8 +44,8 @@ const RawApp = (props: AppProps) => {
 			<Hud
 				itemCount={numberOfModel}
 				selectedIndex={selectedIndex}
-				effectOnLeftAngle={decreaseSelectedIndex}
-				effectOnRightAngle={increaseSelectedIndex}
+				effectOnSelectLeft={decreaseSelectedIndex}
+				effectOnSelectRight={increaseSelectedIndex}
 				effectOnSelect={effectOnSelect}
 			/>
 		</div>

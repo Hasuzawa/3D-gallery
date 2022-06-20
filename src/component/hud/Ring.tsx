@@ -5,7 +5,7 @@ interface RingProps extends IStyled {}
 
 const RawRing = (props: RingProps) => {
 	const { className } = props
-	return <div className={className}></div>
+	return <span className={className}></span>
 }
 
 const Ring = styled(RawRing)`

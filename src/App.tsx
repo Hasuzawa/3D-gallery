@@ -22,16 +22,22 @@ const RawApp = (props: AppProps) => {
 	const changeSelectedIndex = (n: number) => {
 		setSelectedIndex(rotate(n, 0, numberOfModel - 1))
 	}
-	// const changeSelectedIndexMaker = (n: number) => {
-	// 	return changeSelectedIndex(selectedIndex + n)
-	// }
-	// const increaseSelectedIndex = changeSelectedIndexMaker(1)
-	// const decreaseSelectedIndex = changeSelectedIndexMaker(-1)
-	const increaseSelectedIndex = () => {
-		changeSelectedIndex(selectedIndex + 1)
+
+	const changeSelectedIndexDecorator = (n: number) => () => {
+		changeSelectedIndex(selectedIndex + n)
 	}
-	const decreaseSelectedIndex = () => {
-		changeSelectedIndex(selectedIndex - 1)
+	const increaseSelectedIndex = changeSelectedIndexDecorator(1)
+	const decreaseSelectedIndex = changeSelectedIndexDecorator(-1)
+
+	const effectOnKeyDown = <T = HTMLElement,>(e: React.KeyboardEvent<T>) => {
+		switch (e.key) {
+			case "ArrowLeft":
+				decreaseSelectedIndex()
+				break
+			case "ArrowRight":
+				increaseSelectedIndex()
+				break
+		}
 	}
 
 	useEffect(() => {
@@ -40,7 +46,7 @@ const RawApp = (props: AppProps) => {
 
 	return (
 		<div className={props.className}>
-			<Scene model={selectedModel} />
+			<Scene model={selectedModel} effectOnKeyDown={effectOnKeyDown} />
 			<Hud
 				itemCount={numberOfModel}
 				selectedIndex={selectedIndex}

@@ -7,13 +7,18 @@ const canvasStyle = {
 	background: "#000000",
 }
 
-interface SceneProps extends IStyled {
+interface SceneProps<T = HTMLElement> extends IStyled {
 	model?: React.ReactNode
+	effectOnKeyDown: (e: React.KeyboardEvent<T>) => void
 }
 
-const RawScene = (props: SceneProps) => {
+const RawScene = (props: SceneProps<HTMLDivElement>) => {
 	return (
-		<Canvas style={canvasStyle}>
+		<Canvas
+			tabIndex={0}
+			style={canvasStyle}
+			onKeyDown={(e) => props.effectOnKeyDown(e)}
+		>
 			<ambientLight intensity={0.5} />
 			<spotLight intensity={1} position={[5, 5, 5]} />
 			<OrbitControls minDistance={5} maxDistance={80} />

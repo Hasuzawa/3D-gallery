@@ -4,6 +4,7 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
 import { NavigationBar } from "./NavigationBar"
 import { Button } from "../Button"
 import { DotRing } from "./DotRing"
+import { Credit } from "./Credit"
 
 interface HudProps extends IStyled {
 	itemCount: number
@@ -53,6 +54,7 @@ const RawHud = (props: HudProps) => {
 				{buttons}
 				<span style={{ color: "coral" }}>{selectedIndex}</span>
 			</NavigationBar>
+			{/* <Credit text="Hasuzawa@GitHub" url=""/> */}
 		</>
 	)
 }

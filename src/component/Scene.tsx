@@ -8,9 +8,9 @@ const canvasStyle = {
 	background: "#000000",
 }
 
-interface SceneProps extends IStyled {}
-
-// const objects: React.ReactElement[] = [<Dice />]
+interface SceneProps extends IStyled {
+	model?: React.ReactNode
+}
 
 const RawScene = (props: SceneProps) => {
 	return (
@@ -18,7 +18,7 @@ const RawScene = (props: SceneProps) => {
 			<ambientLight intensity={1} />
 			<OrbitControls minDistance={5} maxDistance={80} />
 			<PerspectiveCamera makeDefault position={[10, 10, 5]} />
-			<Dice />
+			{props.model}
 		</Canvas>
 	)
 }

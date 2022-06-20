@@ -3,29 +3,49 @@ import { IStyled } from "../../type"
 import { Dot } from "./Dot"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
 import { DotList } from "./DotList"
+import { Button } from "../Button"
 
 interface HudProps extends IStyled {
-	n: number
+	itemCount: number
+	selectedIndex: number
 	effectOnLeftAngle: () => void
 	effectOnRightAngle: () => void
 }
 
-const arrowColor = "#ffffff"
+const arrowProps = {
+	color: "#FFFFFF",
+	size: 20,
+}
 
 const RawHud = (props: HudProps) => {
+	const { itemCount, selectedIndex, effectOnLeftAngle, effectOnRightAngle } =
+		props
+	if (itemCount <= 1) return <></>
+
+	const dots: React.ReactNode[] = []
+
+	for (let i = 0; i < itemCount; i++) {
+		dots.push(
+			<Dot
+				key={i}
+				effectOnClick={() => {
+					console.log("ok")
+				}}
+				selected={i === selectedIndex}
+			/>
+		)
+	}
 	return (
 		<>
 			<DotList>
-				<button onClick={props.effectOnLeftAngle}>
-					<FaAngleLeft color={arrowColor} />
-				</button>
-				{[0, 1, 2].map((x, idx) => (
-					<Dot key={idx} effectOnClick={() => console.log("ok")} />
-				))}
-				<button onClick={props.effectOnRightAngle}>
-					<FaAngleRight color={arrowColor} />
-				</button>
-				<span style={{ color: "coral" }}>{props.n}</span>
+				<Button effectOnClick={effectOnLeftAngle}>
+					<FaAngleLeft {...arrowProps} />
+				</Button>
+				{dots}
+				<Button effectOnClick={effectOnRightAngle}>
+					<FaAngleRight {...arrowProps} />
+				</Button>
+				<span style={{ color: "coral" }}>{selectedIndex}</span>
 			</DotList>
 		</>
 	)

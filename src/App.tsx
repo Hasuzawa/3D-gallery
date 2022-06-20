@@ -5,6 +5,7 @@ import { Hud } from "./component/hud/Hud"
 import { useState, useEffect } from "react"
 import { numberOfModel } from "./component/object/model"
 import { rotate } from "./util"
+import { model } from "./component/object/model"
 
 interface AppProps extends IStyled {}
 
@@ -20,6 +21,9 @@ const RawApp = (props: AppProps) => {
 	// const [selectedModel, setSelectedModel] = useState<Model>()
 
 	const [selectedIndex, setSelectedIndex] = useState<number>(0)
+	const [selectedModel, setSelectedModel] = useState<any>(
+		model[selectedIndex]
+	)
 
 	const changeSelectedIndex = (n: number) => {
 		setSelectedIndex(rotate(n, 0, numberOfModel - 1))
@@ -36,11 +40,16 @@ const RawApp = (props: AppProps) => {
 		changeSelectedIndex(selectedIndex - 1)
 	}
 
+	useEffect(() => {
+		setSelectedModel(model[selectedIndex])
+	}, [selectedIndex])
+
 	return (
 		<div className={props.className}>
-			<Scene />
+			<Scene model={selectedModel} />
 			<Hud
-				n={selectedIndex}
+				itemCount={numberOfModel}
+				selectedIndex={selectedIndex}
 				effectOnLeftAngle={decreaseSelectedIndex}
 				effectOnRightAngle={increaseSelectedIndex}
 			/>

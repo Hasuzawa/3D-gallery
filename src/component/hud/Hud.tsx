@@ -10,6 +10,7 @@ interface HudProps extends IStyled {
 	selectedIndex: number
 	effectOnLeftAngle: () => void
 	effectOnRightAngle: () => void
+	effectOnSelect: (n: number) => void
 }
 
 const arrowProps = {
@@ -18,8 +19,13 @@ const arrowProps = {
 }
 
 const RawHud = (props: HudProps) => {
-	const { itemCount, selectedIndex, effectOnLeftAngle, effectOnRightAngle } =
-		props
+	const {
+		itemCount,
+		selectedIndex,
+		effectOnLeftAngle,
+		effectOnRightAngle,
+		effectOnSelect,
+	} = props
 	if (itemCount <= 1) return <></>
 
 	const dots: React.ReactNode[] = []
@@ -28,9 +34,7 @@ const RawHud = (props: HudProps) => {
 		dots.push(
 			<Dot
 				key={i}
-				effectOnClick={() => {
-					console.log("ok")
-				}}
+				effectOnClick={() => effectOnSelect(i)}
 				selected={i === selectedIndex}
 			/>
 		)

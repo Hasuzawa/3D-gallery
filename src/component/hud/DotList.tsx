@@ -15,7 +15,7 @@ const DotList = styled(RawDotList)`
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
-	column-gap: 10px;
+	column-gap: 30px;
 `
 
 export { DotList }

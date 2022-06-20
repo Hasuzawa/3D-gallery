@@ -10,7 +10,7 @@ const RawRing = (props: RingProps) => {
 
 const Ring = styled(RawRing)`
 	position: absolute;
-	inset: -6px;
+	inset: -10px;
 	border: 2px solid #ffffff;
 	border-radius: 50%;
 `

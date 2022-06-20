@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { IStyled } from "../../type"
+import { Button } from "../Button"
 import { Ring } from "./Ring"
 
 interface DotProps extends IStyled {
@@ -9,13 +10,17 @@ interface DotProps extends IStyled {
 
 const RawDot = (props: DotProps) => {
 	const { className, effectOnClick, selected } = props
-	return <span className={className}>{selected || <Ring />}</span>
+	return (
+		<Button className={className} effectOnClick={effectOnClick}>
+			{selected || <Ring />}
+		</Button>
+	)
 }
 
 const Dot = styled(RawDot)`
 	display: inline-block;
-	width: 6px;
-	height: 6px;
+	width: 10px;
+	height: 10px;
 	background-color: white;
 	border-radius: 100%;
 

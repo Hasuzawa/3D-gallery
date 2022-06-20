@@ -21,6 +21,10 @@ const RawApp = (props: AppProps) => {
 	// const [selectedModel, setSelectedModel] = useState<Model>()
 
 	const [selectedIndex, setSelectedIndex] = useState<number>(0)
+	const effectOnSelect = (n: number) => {
+		setSelectedIndex(n)
+	}
+
 	const [selectedModel, setSelectedModel] = useState<any>(
 		model[selectedIndex]
 	)
@@ -52,6 +56,7 @@ const RawApp = (props: AppProps) => {
 				selectedIndex={selectedIndex}
 				effectOnLeftAngle={decreaseSelectedIndex}
 				effectOnRightAngle={increaseSelectedIndex}
+				effectOnSelect={effectOnSelect}
 			/>
 		</div>
 	)

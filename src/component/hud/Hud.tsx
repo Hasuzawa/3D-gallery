@@ -1,41 +1,32 @@
 import styled from "styled-components"
 import { IStyled } from "../../type"
 import { Dot } from "./Dot"
-import { HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi"
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
+import { DotList } from "./DotList"
 
-interface HudProps extends IStyled {}
+interface HudProps extends IStyled {
+	n: number
+	effectOnLeftAngle: () => void
+	effectOnRightAngle: () => void
+}
+
+const arrowColor = "#ffffff"
 
 const RawHud = (props: HudProps) => {
 	return (
 		<>
-			{/* <div style={{position: "absolute", }}>
-		
-			</div> */}
-			<li
-				style={{
-					display: "flex",
-					columnGap: 30,
-					position: "absolute",
-					top: 0,
-					left: 0,
-				}}
-			>
-				<HiOutlineArrowLeft />
-				<Dot />
-				<Dot />
-				<Dot />
-				<HiOutlineArrowRight />
-			</li>
-			<h1
-				style={{
-					color: "red",
-					position: "absolute",
-					left: 0,
-					bottom: 0,
-				}}
-			>
-				hello world
-			</h1>
+			<DotList>
+				<button onClick={props.effectOnLeftAngle}>
+					<FaAngleLeft color={arrowColor} />
+				</button>
+				{[0, 1, 2].map((x, idx) => (
+					<Dot key={idx} effectOnClick={() => console.log("ok")} />
+				))}
+				<button onClick={props.effectOnRightAngle}>
+					<FaAngleRight color={arrowColor} />
+				</button>
+				<span style={{ color: "coral" }}>{props.n}</span>
+			</DotList>
 		</>
 	)
 }

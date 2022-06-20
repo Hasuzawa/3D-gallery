@@ -1,7 +1,10 @@
 import styled from "styled-components"
 import { IStyled } from "./type"
 import { Scene } from "./component/Scene"
-// import { Hud } from "./component/hud/Hud"
+import { Hud } from "./component/hud/Hud"
+import { useState, useEffect } from "react"
+import { numberOfModel } from "./component/object/model"
+import { rotate } from "./util"
 
 interface AppProps extends IStyled {}
 
@@ -13,10 +16,34 @@ const RawApp = (props: AppProps) => {
 	// 		console.log("right arrow pressed")
 	// }
 	// onKeyDown={(e) => eventOnKeyDown(e)}
+
+	// const [selectedModel, setSelectedModel] = useState<Model>()
+
+	const [selectedIndex, setSelectedIndex] = useState<number>(0)
+
+	const changeSelectedIndex = (n: number) => {
+		setSelectedIndex(rotate(n, 0, numberOfModel - 1))
+	}
+	const changeSelectedIndexMaker = (n: number) => {
+		return changeSelectedIndex(selectedIndex + n)
+	}
+	// const increaseSelectedIndex = changeSelectedIndexMaker(1)
+	// const decreaseSelectedIndex = changeSelectedIndexMaker(-1)
+	const increaseSelectedIndex = () => {
+		changeSelectedIndex(selectedIndex + 1)
+	}
+	const decreaseSelectedIndex = () => {
+		changeSelectedIndex(selectedIndex - 1)
+	}
+
 	return (
 		<div className={props.className}>
 			<Scene />
-			{/* <Hud /> */}
+			<Hud
+				n={selectedIndex}
+				effectOnLeftAngle={decreaseSelectedIndex}
+				effectOnRightAngle={increaseSelectedIndex}
+			/>
 		</div>
 	)
 }

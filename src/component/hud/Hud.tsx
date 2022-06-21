@@ -52,7 +52,7 @@ const RawHud = (props: HudProps) => {
 		<>
 			<NavigationBar>
 				{buttons}
-				<span style={{ color: "coral" }}>{selectedIndex}</span>
+				{/* <span style={{ color: "coral" }}>{selectedIndex}</span> */}
 			</NavigationBar>
 			{/* <Credit text="Hasuzawa@GitHub" url=""/> */}
 		</>

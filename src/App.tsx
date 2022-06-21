@@ -23,11 +23,11 @@ const RawApp = (props: AppProps) => {
 		setSelectedIndex(rotate(n, 0, numberOfModel - 1))
 	}
 
-	const changeSelectedIndexDecorator = (n: number) => () => {
+	const changeSelectedIndexHOF = (n: number) => () => {
 		changeSelectedIndex(selectedIndex + n)
 	}
-	const increaseSelectedIndex = changeSelectedIndexDecorator(1)
-	const decreaseSelectedIndex = changeSelectedIndexDecorator(-1)
+	const increaseSelectedIndex = changeSelectedIndexHOF(1)
+	const decreaseSelectedIndex = changeSelectedIndexHOF(-1)
 
 	const effectOnKeyDown = <T = HTMLElement,>(e: React.KeyboardEvent<T>) => {
 		switch (e.key) {

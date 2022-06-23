@@ -1,6 +1,7 @@
 {
-	"short_name": "React App",
-	"name": "Create React App Sample",
+	"short_name": "Hasuzawa 3D Gallery",
+	"name": "Web 3D Gallery presented by Hasuzawa",
+	"description": "A web Gallery for 3D Objects created by Hasuzawa in Blender, rendered with THREE.js",
 	"icons": [
 		{
 			"src": "favicon.ico",

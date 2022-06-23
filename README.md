@@ -1,6 +1,6 @@
 ## Gallery for simple 3D objects
 
-[to the Gallery](https://github.com/Hasuzawa/3D-gallery)
+[to the Gallery](https://hasuzawa.github.io/3D-gallery)
 
 You can use arrow keys or Q,W to navigate between items.
 You can toggle the HUD with P.

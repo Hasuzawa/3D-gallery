@@ -26,7 +26,9 @@ type GLTFResult = GLTF & {
 
 export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
 	const group = useRef<THREE.Group>()
-	const { nodes, materials } = useGLTF("item_box.glb") as GLTFResult
+	const { nodes, materials } = useGLTF(
+		"/3D-gallery/item_box.glb"
+	) as GLTFResult
 	return (
 		<group ref={group as any} {...props} dispose={null}>
 			<mesh
@@ -64,4 +66,4 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
 	)
 }
 
-useGLTF.preload("item_box.glb")
+useGLTF.preload("/3D-gallery/item_box.glb")

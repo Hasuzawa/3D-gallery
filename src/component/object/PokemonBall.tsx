@@ -22,8 +22,8 @@ type GLTFResult = GLTF & {
 
 export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
 	const group = useRef<THREE.Group>()
-	const { nodes, materials, animations } = useGLTF(
-		"/pokemon_ball.glb"
+	const { nodes, materials } = useGLTF(
+		"/3D-gallery/pokemon_ball.glb"
 	) as GLTFResult
 	return (
 		<group ref={group as any} {...props} dispose={null}>
@@ -50,4 +50,4 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
 	)
 }
 
-useGLTF.preload("/pokemon_ball.glb")
+useGLTF.preload("/3D-gallery/pokemon_ball.glb")

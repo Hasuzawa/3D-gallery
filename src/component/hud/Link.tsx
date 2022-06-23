@@ -6,12 +6,12 @@ interface LinkProps extends IStyled {}
 const RawLink = (props: LinkProps) => {
 	return (
 		<a
-			href=""
+			href="https://github.com/Hasuzawa/3D-gallery"
 			className={props.className}
 			target="_blank"
 			rel="noopener noreferrer"
 		>
-			Hasuzawa@GitHub
+			Presented by Hasuzawa
 		</a>
 	)
 }

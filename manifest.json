@@ -1,0 +1,26 @@
+{
+	"short_name": "Hasuzawa 3D Gallery",
+	"name": "Web 3D Gallery presented by Hasuzawa",
+	"description": "A web Gallery for 3D Objects created by Hasuzawa in Blender, rendered with THREE.js",
+	"icons": [
+		{
+			"src": "favicon.ico",
+			"sizes": "64x64 32x32 24x24 16x16",
+			"type": "image/x-icon"
+		},
+		{
+			"src": "logo192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "logo512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"start_url": ".",
+	"display": "standalone",
+	"theme_color": "#000000",
+	"background_color": "#ffffff"
+}

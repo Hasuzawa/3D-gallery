@@ -51,3 +51,7 @@ object {
 .google-map * {
 	border-style: none;
 }
+
+a {
+	text-decoration: none;
+}

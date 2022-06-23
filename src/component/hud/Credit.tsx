@@ -1,28 +1,31 @@
 import styled from "styled-components"
 import { IStyled, Url } from "../../type"
+import Link from "./Link"
+import Tip from "./Tip"
 
-interface CreditProps extends IStyled {
-	text: string
-	url: Url
-}
+interface CreditProps extends IStyled {}
 
 const RawCredit = (props: CreditProps) => {
-	const { text, url, className } = props
+	const { className } = props
 	return (
-		<a href={url} className={className}>
-			{text}
-		</a>
+		<div className={className}>
+			<Link />
+			<Tip />
+		</div>
 	)
 }
 
 const Credit = styled(RawCredit)`
 	position: absolute;
-	bottom: 2%;
+	top: 2%;
 	left: 50%;
 	transform: translateX(-50%);
-	color: #666666;
-	font-size: 1em;
+	color: #ffffff;
 	font-family: sans-serif;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	row-gap: 4px;
 `
 
 export { Credit }

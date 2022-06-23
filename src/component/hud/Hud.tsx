@@ -12,6 +12,7 @@ interface HudProps extends IStyled {
 	effectOnSelectLeft: () => void
 	effectOnSelectRight: () => void
 	effectOnSelect: (n: number) => void
+	displayHud: boolean
 }
 
 const arrowProps = {
@@ -26,7 +27,9 @@ const RawHud = (props: HudProps) => {
 		effectOnSelectLeft,
 		effectOnSelectRight,
 		effectOnSelect,
+		displayHud,
 	} = props
+	if (!displayHud) return <></>
 	if (itemCount <= 1) return <></>
 
 	const buttons: React.ReactNode[] = []
@@ -54,7 +57,7 @@ const RawHud = (props: HudProps) => {
 				{buttons}
 				{/* <span style={{ color: "coral" }}>{selectedIndex}</span> */}
 			</NavigationBar>
-			{/* <Credit text="Hasuzawa@GitHub" url=""/> */}
+			<Credit />
 		</>
 	)
 }

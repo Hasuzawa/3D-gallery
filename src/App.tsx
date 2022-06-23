@@ -11,6 +11,11 @@ interface AppProps extends IStyled {}
 
 const RawApp = (props: AppProps) => {
 	const [selectedIndex, setSelectedIndex] = useState<number>(0)
+	const [displayHud, setDisplayHud] = useState<boolean>(true)
+	const toggleDisplayHud = () => {
+		setDisplayHud(!displayHud)
+	}
+
 	const effectOnSelect = (n: number) => {
 		setSelectedIndex(n)
 	}
@@ -32,10 +37,18 @@ const RawApp = (props: AppProps) => {
 	const effectOnKeyDown = <T = HTMLElement,>(e: React.KeyboardEvent<T>) => {
 		switch (e.key) {
 			case "ArrowLeft":
+			case "Q":
+			case "q":
 				decreaseSelectedIndex()
 				break
 			case "ArrowRight":
+			case "W":
+			case "w":
 				increaseSelectedIndex()
+				break
+			case "P":
+			case "p":
+				toggleDisplayHud()
 				break
 		}
 	}
@@ -45,7 +58,7 @@ const RawApp = (props: AppProps) => {
 	}, [selectedIndex])
 
 	return (
-		<div className={props.className}>
+		<main className={props.className}>
 			<Scene model={selectedModel} effectOnKeyDown={effectOnKeyDown} />
 			<Hud
 				itemCount={numberOfModel}
@@ -53,8 +66,9 @@ const RawApp = (props: AppProps) => {
 				effectOnSelectLeft={decreaseSelectedIndex}
 				effectOnSelectRight={increaseSelectedIndex}
 				effectOnSelect={effectOnSelect}
+				displayHud={displayHud}
 			/>
-		</div>
+		</main>
 	)
 }
 

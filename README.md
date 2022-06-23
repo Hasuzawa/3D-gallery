@@ -2,6 +2,9 @@
 
 [to the Gallery]()
 
+You can use arrow keys or Q,W to navigate between items.
+You can toggle the HUD with P.
+
 A very simple gallery for some 3D objects I created in Blender. Rendered with Three.js.
 This is a demo project.
 

@@ -2,6 +2,10 @@
   "name": "3d-gallery",
   "version": "1.0.0",
   "private": true,
+  "author": "Hasuzawa",
+  "description": "Web Gallery for 3D Objects created by Hasuzawa in Blender, rendered with THREE.js",
+  "homepage": "https://hasuzawa.github.io/3D-gallery",
+  "keywords": ["3D", "Gallery", "WebGL"],
   "dependencies": {
     "@react-three/drei": "^9.13.2",
     "@react-three/fiber": "^8.0.26",
@@ -29,6 +33,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "prettier": "prettier --write '**/*.{css,js,jsx,json,cjs,ts,tsx}'",
+	"predeploy": "npm run build",
 	"deploy": "gh-pages -d build"
   },
   "eslintConfig": {

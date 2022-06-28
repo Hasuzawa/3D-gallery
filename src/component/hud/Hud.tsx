@@ -4,7 +4,7 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
 import { NavigationBar } from "./NavigationBar"
 import { Button } from "../Button"
 import { DotRing } from "./DotRing"
-import { Credit } from "./Credit"
+import { Headline } from "./Headline"
 
 interface HudProps extends IStyled {
 	itemCount: number
@@ -29,8 +29,8 @@ const RawHud = (props: HudProps) => {
 		effectOnSelect,
 		displayHud,
 	} = props
-	if (!displayHud) return <></>
-	if (itemCount <= 1) return <></>
+
+	if (!displayHud || itemCount <= 1) return <></>
 
 	const buttons: React.ReactNode[] = []
 
@@ -53,11 +53,8 @@ const RawHud = (props: HudProps) => {
 	)
 	return (
 		<>
-			<NavigationBar>
-				{buttons}
-				{/* <span style={{ color: "coral" }}>{selectedIndex}</span> */}
-			</NavigationBar>
-			<Credit />
+			<Headline />
+			<NavigationBar>{buttons}</NavigationBar>
 		</>
 	)
 }

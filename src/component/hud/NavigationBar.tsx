@@ -10,12 +10,13 @@ const RawNavigationBar = (props: NavigationBarProps) => {
 const NavigationBar = styled(RawNavigationBar)`
 	position: absolute;
 	bottom: 5%;
-	left: 50%;
-	transform: translateX(-50%);
+	left: 0%;
+	right: 0%;
 	display: flex;
 	flex-flow: row wrap;
+	justify-content: center;
 	align-items: center;
-	column-gap: 20px;
+	column-gap: 15px;
 `
 
 export { NavigationBar }

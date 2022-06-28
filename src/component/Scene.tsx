@@ -18,7 +18,7 @@ const RawScene = (props: SceneProps<HTMLDivElement>) => {
 		<Canvas
 			tabIndex={0}
 			style={canvasStyle}
-			onKeyDown={(e) => props.effectOnKeyDown(e)}
+			onKeyDown={props.effectOnKeyDown}
 		>
 			<ambientLight intensity={0.5} />
 			<spotLight intensity={1} position={[5, 5, 5]} />
@@ -29,8 +29,6 @@ const RawScene = (props: SceneProps<HTMLDivElement>) => {
 	)
 }
 
-const Scene = styled(RawScene)`
-	position: absolute;
-`
+const Scene = styled(RawScene)``
 
 export { Scene }

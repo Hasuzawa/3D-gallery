@@ -1,11 +1,11 @@
 import styled from "styled-components"
-import { IStyled, Url } from "../../type"
+import { IStyled } from "../../type"
 import Link from "./Link"
 import Tip from "./Tip"
 
-interface CreditProps extends IStyled {}
+interface HeadlineProps extends IStyled {}
 
-const RawCredit = (props: CreditProps) => {
+const RawHeadline = (props: HeadlineProps) => {
 	const { className } = props
 	return (
 		<div className={className}>
@@ -15,11 +15,11 @@ const RawCredit = (props: CreditProps) => {
 	)
 }
 
-const Credit = styled(RawCredit)`
+const Headline = styled(RawHeadline)`
 	position: absolute;
 	top: 2%;
-	left: 50%;
-	transform: translateX(-50%);
+	left: 0%;
+	right: 0%;
 	color: #ffffff;
 	font-family: sans-serif;
 	display: flex;
@@ -28,4 +28,4 @@ const Credit = styled(RawCredit)`
 	row-gap: 4px;
 `
 
-export { Credit }
+export { Headline }

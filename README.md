@@ -12,5 +12,12 @@ I referenced some items in video game because I wanted to focus on the frontend 
 
 ## Preview
 
-<img src="./README.md.d/screenshot_1.png" alt="Preview of the Website">
+<img src="./README.md.d/screenshot_1.png" alt="Preview of the Website" width=300 >
 
+
+## Changlelog
+
+2022-06-24 v1.0.0 public release
+2022-06-28 v1.0.1 changed CSS so it looks better on small display (i.e. mobile phone)
+2022-06-28 v1.1.0 added Rupee model
+2022-06-28 v1.1.1 slightly more concise functions. Refactored into hooks. Smaller preview image.
